@@ -1,12 +1,9 @@
 import path from 'path';
 import process from 'process';
-import nodemailer from 'nodemailer';
 import cors from 'cors';
 import Enqueue from 'express-enqueue';
 import compression from 'compression';
-import proxy from 'express-http-proxy';
 import * as dotenv from 'dotenv';
-import JiraApi from 'jira-client';
 import express from 'express';
 import { env } from './env.mjs'
 
@@ -17,15 +14,6 @@ export const modules = async (app) => {
 
     app.use(compression());
     app.use(express.json());
-
-    const jira = new JiraApi({
-        protocol: process.env.JIRA_protocol,
-        host: process.env.JIRA_host,
-        username: process.env.JIRA_username,
-        password: process.env.JIRA_password,
-        apiVersion: process.env.JIRA_apiVersion,
-        strictSSL: process.env.JIRA_strictSSL
-    });
 
     const queue = new Enqueue({
         concurrentWorkers: 4,
@@ -74,7 +62,6 @@ export const modules = async (app) => {
         }
     }));
     app.use('/database', express.static(`${__dirname}/services/database/build`));
-    // app.use('/terminal', express.static(`${__dirname}/services/terminal/src`));
     app.use('/docs', express.static(`${__dirname}/services/docs/docs`));
 
     app.use('/template', express.static(`${__dirname}/template`));
@@ -82,7 +69,6 @@ export const modules = async (app) => {
     app.use('/services', express.static(`${__dirname}/services`));
 
     app.use('/modules', express.static(`${__dirname}/services/database/build/modules`));
-
 
     app.get(`/env.json`, async (req, res) => {
         res.status(200).sendFile(path.join(__dirname, 'env.json'))
