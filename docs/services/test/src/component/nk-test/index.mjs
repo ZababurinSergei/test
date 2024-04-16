@@ -1,4 +1,4 @@
-import { onload } from '../../this/index.mjs';
+import { onload, init } from '../../this/index.mjs';
 
 // const COMPONENT = path.dirname(import.meta.url).split(path.sep).pop()
 const COMPONENT = 'nk-test';
@@ -82,14 +82,6 @@ const INDEX = class extends HTMLElement {
         return this.hasAttribute('disabled');
     }
 
-    set terminate (val) {
-        this.controller.addEventListener.terminate();
-    }
-
-    set init (val) {
-        this.controller.addEventListener.init();
-    }
-
     constructor () {
         super();
         if (!this.dataset.servicesPath) {
@@ -102,12 +94,7 @@ const INDEX = class extends HTMLElement {
         this._state = { };
         this._doRender = this._doRender.bind(this);
 
-        debugger
-        import(`./services/test/src/this/init/init/index.mjs`)
-            .then(data => {
-                console.log('sssssssssssssssssssssssssssssssssss',data)
-                data.init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error));
-            });
+        init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error));
     }
 
     connectedCallback () {
