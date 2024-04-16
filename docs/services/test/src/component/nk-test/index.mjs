@@ -102,7 +102,7 @@ const INDEX = class extends HTMLElement {
         this._state = { };
         this._doRender = this._doRender.bind(this);
 
-        import(`/services/${this.dataset.servicesPath}/src/this/init/init/index.mjs`)
+        import(`./services/${this.dataset.servicesPath}/src/this/init/init/index.mjs`)
             .then(data => {
                 data.init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error));
             });
@@ -111,8 +111,8 @@ const INDEX = class extends HTMLElement {
     connectedCallback () {
         onload(this)
             .then(async (self) => {
-                const { actions } = await import(`/services/${self.dataset.servicesPath}/src/component/${COMPONENT}/actions/index.mjs`);
-                let { controller } = await import(`/services/${self.dataset.servicesPath}/src/component/${COMPONENT}/controller/index.mjs`);
+                const { actions } = await import(`./services/${self.dataset.servicesPath}/src/component/${COMPONENT}/actions/index.mjs`);
+                let { controller } = await import(`./services/${self.dataset.servicesPath}/src/component/${COMPONENT}/controller/index.mjs`);
                 self.controller = await controller(self, await actions(self));
                 await self.controller.addEventListener.init();
             })
