@@ -1,7 +1,7 @@
 import {store} from './store/index.mjs'
 
 store.set('pathname', {
-    pathname: '/services/test/src'
+    pathname: '/test/services/test/src'
 });
 
 export { init, onload } from './init/index.mjs'
