@@ -1,4 +1,4 @@
-import { onload, init } from '../../this/index.mjs';
+import { onload } from '../../this/index.mjs';
 
 const COMPONENT = 'nk-test';
 
