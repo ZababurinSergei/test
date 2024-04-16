@@ -11,14 +11,14 @@ const INDEX = class extends HTMLElement {
     }
 
     connectedCallback () {
-        // onload(this)
-        //     .then(async (self) => {
-        //         const { actions } = await import(`./services/${self.dataset.servicesPath}/src/component/${COMPONENT}/actions/index.mjs`);
-        //         let { controller } = await import(`./services/${self.dataset.servicesPath}/src/component/${COMPONENT}/controller/index.mjs`);
-        //         self.controller = await controller(self, await actions(self));
-        //         await self.controller.addEventListener.init();
-        //     })
-        //     .catch(e => console.error('error', e));
+        onload(this)
+            .then(async (self) => {
+                const { actions } = await import(`./services/${self.dataset.servicesPath}/src/component/${COMPONENT}/actions/index.mjs`);
+                let { controller } = await import(`./services/${self.dataset.servicesPath}/src/component/${COMPONENT}/controller/index.mjs`);
+                self.controller = await controller(self, await actions(self));
+                await self.controller.addEventListener.init();
+            })
+            .catch(e => console.error('error', e));
     }
 
     disconnectedCallback () {
