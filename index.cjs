@@ -4,8 +4,6 @@ init('mss', 'development');
 require('dotenv').config()
 const server = import('./index.mjs');
 const express = require('express');
-// const ParseServer = require('./node/parse-server/lib/index.js').ParseServer;
-// let ParseDashboard = require('parse-dashboard');
 let app = express();
 
 server.then(async (data) => {
