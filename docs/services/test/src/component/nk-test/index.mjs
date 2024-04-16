@@ -7,14 +7,17 @@ const INDEX = class extends HTMLElement {
         super();
         this.controller = {};
         this._isOnload = false;
-        init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error));
+        import(`/test/services/test/src/this/index.mjs`)
+            .then(data => {
+                data.init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error))
+            })
     }
 
     connectedCallback () {
         onload(this)
             .then(async (self) => {
                 const { actions } = await import(`/test/services/test/src/component/nk-test/actions/index.mjs`);
-                let { controller } = await import(`/test/services/test/src/component/nk-test/controller/index.mjs`);
+                const { controller } = await import(`/test/services/test/src/component/nk-test/controller/index.mjs`);
                 self.controller = await controller(self, await actions(self));
                 await self.controller.addEventListener.init();
             })
