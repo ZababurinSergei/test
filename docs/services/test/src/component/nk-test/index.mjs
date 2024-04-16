@@ -101,8 +101,8 @@ const INDEX = class extends HTMLElement {
         this._isOnload = false;
         this._state = { };
         this._doRender = this._doRender.bind(this);
-
-        import(`./index.mjs`)
+        
+        import(`./services/test/src/this/init/init/index.mjs`)
             .then(data => {
                 data.init(this).then(self => (self._isOnload = true)).catch(error => console.warn('error', error));
             });
