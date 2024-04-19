@@ -13,7 +13,6 @@ export function clean() {
 export function plotter() {
     let self = document.querySelector('nk-test')
     let datasetNumber = self.shadowRoot.querySelector('#plotGraph')
-    // var datasetNumber = $("#plotGraph").val();
     datasetNumber = datasetNumber.value
 
     if(dset.length !== 0) {
