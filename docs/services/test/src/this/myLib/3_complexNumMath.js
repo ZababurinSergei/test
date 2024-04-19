@@ -25,7 +25,7 @@ export function zNullIntrpretetor(z) {
     return [Re, Im];
 }
 
-function zAHTUNG(z) {
+export function zAHTUNG(z) {
     let NullBoundary = 1.0e-10;
     let Re = z[0];
     let Im = z[1];
@@ -39,17 +39,17 @@ function zAHTUNG(z) {
     return [Re, Im];
 }
 
-function zAbs(z) {
+export function zAbs(z) {
     return Math.sqrt(z[0] ** 2 + z[1] ** 2);
 }
 
-function zT(z) {
+export function zT(z) {
     let z1 = zS(z);
     let Q = z[0] ** 2 + z[1] ** 2;
     return [z1[0] / Q, z1[1] / Q];
 }
 
-function zM(z) {
+export function zM(z) {
     return [-z[0], -z[1]];
 }
 

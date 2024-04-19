@@ -100,18 +100,19 @@
                                        class="nk-clean"
                                        style="font-family: Courier;"
                                        placeholder="0.1"
-<!--                                       onclick="clean();"-->
+                                <!--                                       onclick="clean();"-->
                                 >
                             </p>
                         </div>
                         <div style="display: flex; align-items: center; justify-content: center">
-                            <p>Количество точек на O<sub>x</sub>, шт<br><input id="xPointNum"   class="nk-clean"
+                            <p>Количество точек на O<sub>x</sub>, шт<br><input id="xPointNum" class="nk-clean"
                                                                                style="font-family: Courier;"
                                                                                placeholder="50"></p>
 
                         </div>
                         <div style="display: flex; justify-content: flex-end; align-items: center;">
-                            <p>Конечная частота, ω<sub>1</sub> (или длина волны, λ<sub>1</sub>)<br><input id="freq1"   class="nk-clean"
+                            <p>Конечная частота, ω<sub>1</sub> (или длина волны, λ<sub>1</sub>)<br><input id="freq1"
+                                                                                                          class="nk-clean"
                                                                                                           style="font-family: Courier;"
                                                                                                           placeholder="2π/0.1 = 62.831853">
                             </p>
@@ -148,18 +149,21 @@
                 <br>
 
                 параметры начальной среды (по умолчанию задан вакуум, ε = 1.0):<br>
-                <input id="primaryMedium" type="text" style="width: 500px; font-family: Courier;" class="nk-clean" onclick="clean();"
+                <input id="primaryMedium" type="text" style="width: 500px; font-family: Courier;" class="nk-clean"
+                       onclick="clean();"
                        placeholder="; 1.0">
                 <br><br>
 
 
                 параметры стопки пластин (по умолчанию задан слой вакуума с нулевой толщиной, d = 0.0):<br>
-                <textarea id="plateMedium" style="width: 500px; font-family: Courier;" rows="5" class="nk-clean" onclick="clean();"
+                <textarea id="plateMedium" style="width: 500px; font-family: Courier;" rows="5" class="nk-clean"
+                          onclick="clean();"
                           placeholder="0.0"></textarea>
                 <br><br>
 
                 параметры конечной среды (по умолчанию задан вакуум, ε = 1.0):<br>
-                <input id="finalMedium" type="text" style="width: 500px; font-family: Courier;" class="nk-clean" onclick="clean();"
+                <input id="finalMedium" type="text" style="width: 500px; font-family: Courier;" class="nk-clean"
+                       onclick="clean();"
                        placeholder="; 1.0">
                 <br>===============
             </div>
@@ -1239,10 +1243,11 @@
         </div>
 
         <nk-plot-graph
-            slot="graphWindow"
+                slot="graphWindow"
         >
             <template>
-                <div data-exclusion id="graphWindow" style="width:100%; height:320px;margin:auto;background: #FFFFFF"></div>
+                <div data-exclusion id="graphWindow"
+                     style="width:100%; height:320px;margin:auto;background: #FFFFFF"></div>
             </template>
         </nk-plot-graph>
     </template>
