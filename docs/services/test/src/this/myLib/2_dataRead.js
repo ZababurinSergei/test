@@ -128,11 +128,12 @@ export function giveString(OneStr) {
 
 
 export function mediumSetting() {
-
+    const self = document.querySelector('nk-test')
     let MediumParameters = [];
-    MediumParameters.push(giveString(document.getElementById("primaryMedium").value));
+    let oneString = ''
+    MediumParameters.push(giveString(self.shadowRoot.querySelector("#primaryMedium").value));
 
-    var read2 = document.getElementById("plateMedium").value;
+    var read2 = self.shadowRoot.querySelector("#plateMedium") .value;
     if (read2.length == 0) {
         oneString = giveString('');
         MediumParameters.push(oneString);
@@ -152,7 +153,7 @@ export function mediumSetting() {
 
     }
 
-    MediumParameters.push(giveString(document.getElementById("finalMedium").value));
+    MediumParameters.push(giveString(self.shadowRoot.querySelector("#finalMedium").value));
     return MediumParameters;
 } // конец функции
    

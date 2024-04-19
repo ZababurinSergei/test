@@ -1,3 +1,19 @@
+import {
+    zMult,
+    zExp,
+    zInverseMatrix,
+    zGetMultMatrix4,
+    zT,
+    zM,
+    zSum,
+    zSqrt,
+    zAbs,
+    zNullIntrpretetor,
+    zGetTransposedMatrix4,
+    zSV,
+    zS,
+    zGetMultStrings
+} from '../index.mjs'
 /////////////
 export function getDiMatrix(parameterString, omega) {
 

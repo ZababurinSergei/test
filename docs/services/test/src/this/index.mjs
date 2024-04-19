@@ -24,6 +24,7 @@ export {
     zPhi,
     zSqrt,
     zExp,
+    zSV,
     zGetAlgebraicComplement,
     zDeterminant3,
     zGetTransposedMatrix4,

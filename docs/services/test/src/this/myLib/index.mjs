@@ -16,7 +16,8 @@ export {
     subtractingMatrixRows,
     zMaxRowElement,
     zMatrix_minus_lambda_SV,
-    zAHTUNG_Matrix
+    zAHTUNG_Matrix,
+    zSV
 } from "./4_complexMatrix4Math.js";
 
 export {

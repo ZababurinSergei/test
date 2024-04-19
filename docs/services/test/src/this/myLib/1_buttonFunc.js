@@ -1,11 +1,19 @@
-import {mediumSetting} from '../../this/index.mjs'
+import {mediumSetting, getCoefficients} from '../../this/index.mjs'
+let dset  = window.dset
 
 export function clean() {
-    document.getElementById("report").innerHTML = ' --- ';
+    let self = document.querySelector('nk-test')
+    self.shadowRoot.querySelector('#report').innerHTML = ' --- ';
+    // document.getElementById("report").innerHTML = ' --- ';
 }
 
 export function plotter() {
-    var datasetNumber = $("#plotGraph").val();
+    let self = document.querySelector('nk-test')
+    let datasetNumber = self.shadowRoot.querySelector('#plotGraph')
+    datasetNumber = datasetNumber.value
+    console.log('datasetNumber', datasetNumber, $.plot)
+    debugger
+    // var datasetNumber = $("#plotGraph").val();
     var plot = $.plot("#graphWindow", [dset[datasetNumber]], {
         series: {
             lines: {
@@ -34,14 +42,15 @@ export function plotter() {
 }
 
 export function solvMassives() {
+    const self = document.querySelector('nk-test')
 // document.getElementById("report").innerHTML = ' --- ';
 
-    debugger
     var Medium = [];
     Medium = mediumSetting();
-
+    console.log('===== Medium =====', Medium)
 /////////////////////////////////////////////
-    if (document.getElementById("showMediumToScreen").checked == true) {
+    const showMediumToScreen = self.shadowRoot.querySelector('#showMediumToScreen')
+    if (showMediumToScreen.checked == true) {
         let resume = 'ПАРАМЕТРЫ СЛОИСТОЙ СРЕДЫ \n' + 'количество строк: ' + Medium.length + '\n';
         for (let i = 0; i < Medium.length; i++) {
             resume = resume + '\n' + Medium[i];
@@ -57,10 +66,10 @@ export function solvMassives() {
     // время счета
 
 
-    var xPointN = Number(document.getElementById("xPointNum").value);
-    var w0 = Number(document.getElementById("freq0").value);
-    var w1 = Number(document.getElementById("freq1").value);
-    var along = document.querySelector('input[name="question"]:checked')?.value;
+    var xPointN = Number(self.shadowRoot.querySelector("#xPointNum").value);
+    var w0 = Number(self.shadowRoot.querySelector("#freq0").value);
+    var w1 = Number(self.shadowRoot.querySelector("#freq1").value);
+    var along = self.shadowRoot.querySelector('input[name="question"]:checked')?.value;
 
     if (!xPointN > 0) {
         xPointN = 50;
@@ -105,5 +114,5 @@ export function solvMassives() {
     end = new Date(); // создаем объект Date с текущим временем
     result = end.getTime() - start.getTime(); // получаем разницу в миллисекундах
 
-    document.getElementById("report").innerHTML = result / 1000 + ' сек.';
+    self.shadowRoot.querySelector("#report").innerHTML = result / 1000 + ' сек.';
 }

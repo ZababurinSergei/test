@@ -1,3 +1,5 @@
+import {zMult,  zT, zM, zSum, zAbs, zNullIntrpretetor} from '../index.mjs'
+
 export function zGetColumn(M, j) {
     return [M[0][j],
         M[1][j],
@@ -148,9 +150,9 @@ export function zGetAlgebraicComplement(A, k, l) {
 
 export function zDeterminant4(A) {
     let j = 0;
-    Sum = [0, 0];
-    Tmp = [0, 0];
-    Minor = [0, 0];
+    let Sum = [0, 0];
+    let Tmp = [0, 0];
+    let Minor = [0, 0];
     for (let i = 0; i < 4; i++) {
         Minor = zDeterminant3(zGetAlgebraicComplement(A, i, j));
         Tmp = zMult(A[i][j], Minor);
@@ -492,7 +494,7 @@ export function zMatrix_minus_lambda_SV(A) {
 
 ////++++++++++++++++++++++++++
 
-function zSV(C) {
+export function zSV(C) {
 
     let A = zNormalizeMatrix(C);
     let zMax = [0, 0];
