@@ -7,7 +7,11 @@
     /*padding: 12px 12px;*/
     background: white;
 }
-
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 TABLE {
     width: 100%; /* Ширина таблицы */
     border-collapse: collapse; /* Убираем двойные линии между ячейками */
