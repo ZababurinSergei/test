@@ -2,7 +2,7 @@ import {
     clean,
     plotter,
     solvMassives
-} from '../../../this/index.mjs'
+} from '../this/index.mjs'
 export const actions = (self) => {
     return new Promise(async (resolve, reject) => {
         resolve({

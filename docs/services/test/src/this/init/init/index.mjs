@@ -69,14 +69,14 @@ export const init = (self) => {
         // }
 
         if (container.shadowDom.length > 0) {
-            let link = `${pathname}/component/${self.tagName.toLowerCase()}/views/css/index.shadow.css`;
+            let link = `${pathname}/component/${self.tagName.toLowerCase()}/this/css/index.shadow.css`;
 
             if (!self.shadowRoot) {
                 self.attachShadow({ mode: 'open' });
             }
 
             if (self.dataset.cssShadow) {
-                link = `${pathname}/component/${self.tagName.toLowerCase()}/views/css/${self.dataset.cssShadow}.shadow.css`;
+                link = `${pathname}/component/${self.tagName.toLowerCase()}/this/css/${self.dataset.cssShadow}.shadow.css`;
             }
 
             const style = document.createElement('style');
