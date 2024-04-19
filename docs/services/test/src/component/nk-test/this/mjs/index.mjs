@@ -1,21 +1,9 @@
 export {
-    clean,
-    plotter,
-    solvMassives,
-    mediumSetting,
-    giveString,
-    zSum,
-    zMult,
-    zS,
-    zNullIntrpretetor,
-    zAHTUNG,
-    zAbs,
-    zT,
-    zM,
-    zPhi,
-    zSqrt,
-    zExp,
-    zSV,
+    getDiMatrix,
+    getCoefficients
+} from "./myLib/5_calculator.js";
+
+export {
     zGetAlgebraicComplement,
     zDeterminant3,
     zGetTransposedMatrix4,
@@ -29,6 +17,30 @@ export {
     zMaxRowElement,
     zMatrix_minus_lambda_SV,
     zAHTUNG_Matrix,
-    getDiMatrix,
-    getCoefficients
-} from './myLib/index.mjs'
+    zSV
+} from "./myLib/4_complexMatrix4Math.js";
+
+export {
+    zSum,
+    zMult,
+    zS,
+    zNullIntrpretetor,
+    zAHTUNG,
+    zAbs,
+    zT,
+    zM,
+    zPhi,
+    zSqrt,
+    zExp,
+} from "./myLib/3_complexNumMath.js";
+
+export {
+    mediumSetting,
+    giveString
+} from "./myLib/2_dataRead.js";
+
+export {
+    clean,
+    plotter,
+    solvMassives
+} from './myLib/1_buttonFunc.js'

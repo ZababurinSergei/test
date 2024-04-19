@@ -1,3 +1,3 @@
 export default {
-    description:"this component"
+    description:"this component module"
 }
