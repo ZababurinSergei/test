@@ -1,6 +1,6 @@
 import { onload } from '../../this/index.mjs';
 
-const COMPONENT = 'nk-test';
+const COMPONENT = 'prashkevich-plot-graph';
 
 const INDEX = class extends HTMLElement {
     constructor () {

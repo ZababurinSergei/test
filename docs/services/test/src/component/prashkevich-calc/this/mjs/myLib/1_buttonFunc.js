@@ -5,13 +5,13 @@ if(!dset) {
     dset = []
 }
 export function clean() {
-    let self = document.querySelector('nk-test')
+    let self = document.querySelector('prashkevich-calc')
     self.shadowRoot.querySelector('#report').innerHTML = ' --- ';
     // document.getElementById("report").innerHTML = ' --- ';
 }
 
 export function plotter() {
-    let self = document.querySelector('nk-test')
+    let self = document.querySelector('prashkevich-calc')
     let datasetNumber = self.shadowRoot.querySelector('#plotGraph')
     datasetNumber = datasetNumber.value
 
@@ -47,7 +47,7 @@ export function plotter() {
 }
 
 export function solvMassives() {
-    const self = document.querySelector('nk-test')
+    const self = document.querySelector('prashkevich-calc')
 // document.getElementById("report").innerHTML = ' --- ';
 
     var Medium = [];

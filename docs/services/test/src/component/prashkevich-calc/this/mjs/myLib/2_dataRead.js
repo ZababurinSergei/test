@@ -128,7 +128,7 @@ export function giveString(OneStr) {
 
 
 export function mediumSetting() {
-    const self = document.querySelector('nk-test')
+    const self = document.querySelector('prashkevich-calc')
     let MediumParameters = [];
     let oneString = ''
     MediumParameters.push(giveString(self.shadowRoot.querySelector("#primaryMedium").value));
