@@ -1,6 +1,6 @@
 import { onload } from '../../this/index.mjs';
 
-const COMPONENT = 'nk-test';
+const COMPONENT = 'nk-plot-graph';
 
 const INDEX = class extends HTMLElement {
     constructor () {

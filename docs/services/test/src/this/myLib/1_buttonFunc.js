@@ -34,6 +34,7 @@ export function plotter(){
 export function solvMassives(){
 // document.getElementById("report").innerHTML = ' --- ';
 
+    debugger
       var Medium = [];
       Medium = mediumSetting();
 
