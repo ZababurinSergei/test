@@ -6,6 +6,13 @@ store.set('pathname', {
 
 export { init, onload } from './init/index.mjs'
 export {store}
+
+export {
+    clean,
+    plotter,
+    solvMassives
+} from './myLib/index.mjs'
+
 export default {
     description: 'all modules for this'
 }
