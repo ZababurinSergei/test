@@ -1256,6 +1256,8 @@
 <script type="module">
     import components from './services/test/src/component/index.mjs'
 
-    window.dset = []
+    if(!window.dset) {
+        window.dset = []
+    }
 </script>
 </html>

@@ -1,6 +1,9 @@
 import {mediumSetting, getCoefficients} from '../../this/index.mjs'
 let dset  = window.dset
 
+if(!dset) {
+    dset = []
+}
 export function clean() {
     let self = document.querySelector('nk-test')
     self.shadowRoot.querySelector('#report').innerHTML = ' --- ';
