@@ -31,7 +31,7 @@ export function giveString(OneStr) {
 //    const q              = 0.0;
 //    const sigma_mag_par  = 0.0;
 //    const sigma_mag_perp = 0.0;
-    
+
 //    const parameterNumber = 11; // считая еще и толщину пластины
 
 // тест функции (пройден)
@@ -49,111 +49,110 @@ export function giveString(OneStr) {
 // ;1;2;3
 // ;1;2;3;
 
-      let OneStrReturn = [];
-      OneStrReturn[0] =  0.0; //'--';//
-      OneStrReturn[1] =  1.0; //'--';//
-      OneStrReturn[2] =  0.0; //'--';//
-      OneStrReturn[3] =  1.0; //'--';//
-      OneStrReturn[4] =  1.0; //'--';//
-      OneStrReturn[5] =  0.0; //'--';//
-      OneStrReturn[6] =  1.0; //'--';//
-      OneStrReturn[7] =  0.0; //'--';//
-      OneStrReturn[8] =  0.0; //'--';//
-      OneStrReturn[9] =  0.0; //'--';//
-      OneStrReturn[10] = 0.0; //'--';//
+    let OneStrReturn = [];
+    OneStrReturn[0] = 0.0; //'--';//
+    OneStrReturn[1] = 1.0; //'--';//
+    OneStrReturn[2] = 0.0; //'--';//
+    OneStrReturn[3] = 1.0; //'--';//
+    OneStrReturn[4] = 1.0; //'--';//
+    OneStrReturn[5] = 0.0; //'--';//
+    OneStrReturn[6] = 1.0; //'--';//
+    OneStrReturn[7] = 0.0; //'--';//
+    OneStrReturn[8] = 0.0; //'--';//
+    OneStrReturn[9] = 0.0; //'--';//
+    OneStrReturn[10] = 0.0; //'--';//
 
-      let SmallWord = '';
-      let WordCounter = 0;
-      let SimbolTmp = '';
-      
-      for ( let i = 0; i<OneStr.length; i++ ) {
-            if ( OneStr[i] == ';' ) {
-                  if (!((String(Number(SmallWord)) === 'NaN') || (SmallWord == ''))){  // если слово распознается как число, то
-                      OneStrReturn[WordCounter] = Number(SmallWord);
+    let SmallWord = '';
+    let WordCounter = 0;
+    let SimbolTmp = '';
+
+    for (let i = 0; i < OneStr.length; i++) {
+        if (OneStr[i] == ';') {
+            if (!((String(Number(SmallWord)) === 'NaN') || (SmallWord == ''))) {  // если слово распознается как число, то
+                OneStrReturn[WordCounter] = Number(SmallWord);
 //    1 - eps               (если это число, то следует его приравнять к №4 "eps_perp")       
 //    2 - sigma             (если это число, то следует его приравнять к №5 "sigma_perp")     
 //    3 - mu                (если это число, то следует его приравнять к №6 "mu_perp")        
 //    9 - sigma_mag_par     (если это число, то следует его приравнять к №10 "sigma_mag_perp")
-                     if (WordCounter == 1) {
-                          OneStrReturn[4] = Number(SmallWord);
-                        }
-                     if (WordCounter == 2) {
-                           OneStrReturn[5] = Number(SmallWord);
-                        }
-                     if (WordCounter == 3) {
-                           OneStrReturn[6] = Number(SmallWord);
-                        }
-                     if (WordCounter == 9) {
-                           OneStrReturn[10] = Number(SmallWord);
-                        }
-                     }
+                if (WordCounter == 1) {
+                    OneStrReturn[4] = Number(SmallWord);
+                }
+                if (WordCounter == 2) {
+                    OneStrReturn[5] = Number(SmallWord);
+                }
+                if (WordCounter == 3) {
+                    OneStrReturn[6] = Number(SmallWord);
+                }
+                if (WordCounter == 9) {
+                    OneStrReturn[10] = Number(SmallWord);
+                }
+            }
 
 //                alert ('номер слова ' + WordCounter + ', слово ' + SmallWord + ', число из слова ' + Number(SmallWord));
-                  SmallWord = '';
-                  WordCounter++;
-                  continue;
-                  }
-             if (WordCounter >= 11)  {
-                   break;
-                  }
-       
-           SimbolTmp = OneStr[i];
-           if ( OneStr[i] == ' ' ) {
-                 SimbolTmp = '';
-                 }
-           if ( OneStr[i] == ',' ) {
-                 SimbolTmp = '.';
-                 }
-                 
-            SmallWord = SmallWord + SimbolTmp;
-      }
+            SmallWord = '';
+            WordCounter++;
+            continue;
+        }
+        if (WordCounter >= 11) {
+            break;
+        }
+
+        SimbolTmp = OneStr[i];
+        if (OneStr[i] == ' ') {
+            SimbolTmp = '';
+        }
+        if (OneStr[i] == ',') {
+            SimbolTmp = '.';
+        }
+
+        SmallWord = SmallWord + SimbolTmp;
+    }
 // последнее слово (в конце строки не встретилось ";")
-    if (!((String(Number(SmallWord)) === 'NaN') || (SmallWord == ''))){  // если слово распознается как число, то
-                      OneStrReturn[WordCounter] = Number(SmallWord);
-                      if (WordCounter == 1) {
-                          OneStrReturn[4] = Number(SmallWord);
-                        }
-                      if (WordCounter == 2) {
-                           OneStrReturn[5] = Number(SmallWord);
-                        }
-                      if (WordCounter == 3) {
-                           OneStrReturn[6] = Number(SmallWord);
-                        }
-                      if (WordCounter == 9) {
-                           OneStrReturn[10] = Number(SmallWord);
-                        }
-                     }
-       return OneStrReturn;
-   }// конец функции
+    if (!((String(Number(SmallWord)) === 'NaN') || (SmallWord == ''))) {  // если слово распознается как число, то
+        OneStrReturn[WordCounter] = Number(SmallWord);
+        if (WordCounter == 1) {
+            OneStrReturn[4] = Number(SmallWord);
+        }
+        if (WordCounter == 2) {
+            OneStrReturn[5] = Number(SmallWord);
+        }
+        if (WordCounter == 3) {
+            OneStrReturn[6] = Number(SmallWord);
+        }
+        if (WordCounter == 9) {
+            OneStrReturn[10] = Number(SmallWord);
+        }
+    }
+    return OneStrReturn;
+}// конец функции
 
 
+export function mediumSetting() {
 
- export function mediumSetting() {
+    let MediumParameters = [];
+    MediumParameters.push(giveString(document.getElementById("primaryMedium").value));
 
-      let MediumParameters = [];
-      MediumParameters.push(giveString(document.getElementById("primaryMedium").value));
+    var read2 = document.getElementById("plateMedium").value;
+    if (read2.length == 0) {
+        oneString = giveString('');
+        MediumParameters.push(oneString);
+    } else {
 
-      var read2 = document.getElementById("plateMedium").value;
-      if ( read2.length == 0 ) {
-                      oneString = giveString('');
-                      MediumParameters.push(oneString);
-            } else {
+        let SumWord = '';
+        for (let i = 0; i < read2.length; i++) {
+            if (read2[i] == '\n') {
+                MediumParameters.push(giveString(SumWord));
+                SumWord = '';
+                continue;
+            }
+            SumWord = SumWord + read2[i];
+        }
+        // последнее слово (в конце строки не встретилось "\n")
+        MediumParameters.push(giveString(SumWord));
 
-                    let SumWord = '';
-                    for ( let i = 0; i<read2.length; i++ ) {
-                          if ( read2[i] == '\n' ) {
-                                MediumParameters.push(giveString(SumWord));
-                                SumWord = '';
-                                continue;
-                                }
-                          SumWord = SumWord + read2[i];
-                    }
-                    // последнее слово (в конце строки не встретилось "\n")
-                    MediumParameters.push(giveString(SumWord));
+    }
 
-                  }
-
-  MediumParameters.push(giveString(document.getElementById("finalMedium").value));
-  return MediumParameters;
-  } // конец функции
+    MediumParameters.push(giveString(document.getElementById("finalMedium").value));
+    return MediumParameters;
+} // конец функции
    
