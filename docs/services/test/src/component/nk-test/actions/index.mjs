@@ -3,6 +3,12 @@ export const actions = (self) => {
         resolve({
             solvMassives: async (event) => {
                 console.log('------------ Начать расчет ---------------')
+            },
+            plotter: async () => {
+                console.log('------------ плотер ---------------')
+            },
+            clean: async () => {
+                console.log('------------ очистка ---------------')
             }
         });
     });
