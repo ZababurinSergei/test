@@ -1,5 +1,5 @@
 /////////////
-function getDiMatrix(parameterString,omega){
+export function getDiMatrix(parameterString,omega){
 
 let d =                         parameterString[0];
 let eps_par =                   parameterString[1];
@@ -192,7 +192,7 @@ return MatrixDi;
 
 
 ///////////////////////////////////
-function getCoefficients(ParameterMassive,omega){
+export function getCoefficients(ParameterMassive,omega){
 
 let eps0 =   ParameterMassive[0][1];
 let sigma0 = ParameterMassive[0][2];

@@ -1,4 +1,9 @@
 export {
+    getDiMatrix,
+    getCoefficients
+} from "./5_calculator.js";
+
+export {
     zGetAlgebraicComplement,
     zDeterminant3,
     zGetTransposedMatrix4,
