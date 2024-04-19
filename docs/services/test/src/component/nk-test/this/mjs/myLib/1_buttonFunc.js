@@ -13,35 +13,38 @@ export function clean() {
 export function plotter() {
     let self = document.querySelector('nk-test')
     let datasetNumber = self.shadowRoot.querySelector('#plotGraph')
-    datasetNumber = datasetNumber.value
-    console.log('datasetNumber', datasetNumber, $.plot)
-    debugger
     // var datasetNumber = $("#plotGraph").val();
-    var plot = $.plot("#graphWindow", [dset[datasetNumber]], {
-        series: {
-            lines: {
-                show: true
-            },
-            points: {
-                show: true
-            }
-        },
-        grid: {
-            hoverable: true,
-            clickable: true
-        },
-        yaxis: {
-            min: -0.05,
-            max: 1.05
-        },
-        zoom: {
-            interactive: true
-        },
-        pan: {
-            interactive: true,
-            enableTouch: true
+    datasetNumber = datasetNumber.value
+
+    if(dset.length !== 0) {
+        if(dset[datasetNumber]) {
+            var plot = $.plot("#graphWindow", [dset[datasetNumber]], {
+                series: {
+                    lines: {
+                        show: true
+                    },
+                    points: {
+                        show: true
+                    }
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true
+                },
+                yaxis: {
+                    min: -0.05,
+                    max: 1.05
+                },
+                zoom: {
+                    interactive: true
+                },
+                pan: {
+                    interactive: true,
+                    enableTouch: true
+                }
+            });
         }
-    });
+    }
 }
 
 export function solvMassives() {

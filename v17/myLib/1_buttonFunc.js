@@ -4,6 +4,7 @@ document.getElementById("report").innerHTML = ' --- ';
 
       function plotter(){
 	var datasetNumber = $("#plotGraph").val();
+    console.log('#####################################', datasetNumber)
 	var plot = $.plot("#graphWindow", [dset[datasetNumber]], {
 		series: {
 			lines: {
