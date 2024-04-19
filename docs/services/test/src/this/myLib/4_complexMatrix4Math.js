@@ -1,11 +1,11 @@
-function zGetColumn (M,j) {
+export function zGetColumn (M,j) {
 return [M[0][j],
         M[1][j],
         M[2][j],
         M[3][j]];
 }
 
-function zGetMultStrings(a,b) {
+export function zGetMultStrings(a,b) {
    let res = [0,0];
    for (let i=0; i<4; i++){
         res = zSum ( res, zMult( a[i],b[i] ) );
@@ -13,7 +13,7 @@ function zGetMultStrings(a,b) {
 return res;
 }
 
-function zGetMultMatrix4(A,B) {
+export function zGetMultMatrix4(A,B) {
   let c11 = [0,0];  let c12 = [0,0];  let c13 = [0,0];  let c14 = [0,0];
   let c21 = [0,0];  let c22 = [0,0];  let c23 = [0,0];  let c24 = [0,0];
   let c31 = [0,0];  let c32 = [0,0];  let c33 = [0,0];  let c34 = [0,0];
@@ -30,7 +30,7 @@ function zGetMultMatrix4(A,B) {
 return C;
 }
 
-function zGetTransposedMatrix4(A) {
+export function zGetTransposedMatrix4(A) {
   let c11 = [0,0];  let c12 = [0,0];  let c13 = [0,0];  let c14 = [0,0];
   let c21 = [0,0];  let c22 = [0,0];  let c23 = [0,0];  let c24 = [0,0];
   let c31 = [0,0];  let c32 = [0,0];  let c33 = [0,0];  let c34 = [0,0];
@@ -47,7 +47,7 @@ function zGetTransposedMatrix4(A) {
 return C;
 }
 
-function zDeterminant3(A) {
+export function zDeterminant3(A) {
 // zDeterminant3(A)
 /// матрица с индексами:
 /// 11 12 13
@@ -91,7 +91,7 @@ function zDeterminant3(A) {
 return zSum(s1,s2);
 }
 
-function zGetAlgebraicComplement(A,k,l) {
+export function zGetAlgebraicComplement(A,k,l) {
   let c11 = [0,0];  let c12 = [0,0];  let c13 = [0,0];
   let c21 = [0,0];  let c22 = [0,0];  let c23 = [0,0];
   let c31 = [0,0];  let c32 = [0,0];  let c33 = [0,0];
@@ -116,7 +116,7 @@ function zGetAlgebraicComplement(A,k,l) {
 return C;
 }
 
-function zDeterminant4(A) {
+export function zDeterminant4(A) {
    let j=0;
    Sum = [0,0];
    Tmp = [0,0];
@@ -132,7 +132,7 @@ function zDeterminant4(A) {
 return Sum;
 }
 
-function zInverseMatrix(A) {
+export function zInverseMatrix(A) {
       
   let c11 = [0,0];  let c12 = [0,0];  let c13 = [0,0];  let c14 = [0,0];
   let c21 = [0,0];  let c22 = [0,1];  let c23 = [0,0];  let c24 = [0,0];
@@ -160,7 +160,7 @@ function zInverseMatrix(A) {
 return C;
 }
 
-function zMaxMatrixElement(A) {
+export function zMaxMatrixElement(A) {
    let zMax = [0,0];
    let indexMax = [0,0];
    for (let i=0; i<4; i++){
@@ -174,7 +174,7 @@ function zMaxMatrixElement(A) {
 return [zMax,indexMax];
 }
 
-function zNormalizeMatrix(A){
+export function zNormalizeMatrix(A){
 let Norm = zMaxMatrixElement(A);
 let Res = [[],[],[],[]];
    for (let i=0; i<4; i++){
@@ -185,7 +185,7 @@ let Res = [[],[],[],[]];
 return Res;
       }
 
-function subtractingMatrixRows (Str1,Str2,ColumnNum) {
+export function subtractingMatrixRows (Str1,Str2,ColumnNum) {
    let StrOut = [[0,0],[0,0],[0,0],[0,0]];
    let C =  zMult( Str2[ColumnNum],  zT( Str1[ColumnNum] ) );
    StrOut[0] = zNullIntrpretetor( zSum( Str2[0], zM( zMult( Str1[0],C ) ) ) );
@@ -195,7 +195,7 @@ function subtractingMatrixRows (Str1,Str2,ColumnNum) {
 return StrOut;
 }
 
-function zMaxRowElement(R) {
+export function zMaxRowElement(R) {
    let zMax = [0,0];
    let indexMax;
    for (let i=0; i<4; i++){
@@ -208,7 +208,7 @@ function zMaxRowElement(R) {
 return [zMax,indexMax];
 }
 
-function zMatrix_minus_lambda_SV(A){
+export function zMatrix_minus_lambda_SV(A){
 // первая итерация (матрица А)
 // находим максимальный элемент и индекс элемента в 4-х строках матрицы A
    let zMax = [0,0];
@@ -629,7 +629,7 @@ return [[ [1,0],[0,0],[0,0],[0,0] ],
         [ [0,0],[0,0],[0,0],[1,0] ]]; //(4 собственных вектора)
 }
 
-function zAHTUNG_Matrix(A) {
+export function zAHTUNG_Matrix(A) {
   let C = [[],[],[],[]];
    for (let i=0; i<4; i++){
         for (let j=0; j<4; j++){

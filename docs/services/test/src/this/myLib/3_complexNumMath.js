@@ -1,19 +1,19 @@
-function zSum(z0,z1) {
+export function zSum(z0,z1) {
   return [z0[0]+z1[0],
           z0[1]+z1[1]];
 }
 
-function zMult(z0,z1) {
+export function zMult(z0,z1) {
 
   return [z0[0]*z1[0]-z0[1]*z1[1],
           z0[0]*z1[1]+z0[1]*z1[0]];
 }
 
-function zS(z) {
+export function zS(z) {
 return [z[0],-z[1]];
 }
 
-function zNullIntrpretetor(z) {
+export function zNullIntrpretetor(z) {
     let NullBoundary = 1.0e-14;// 1.0e-10; //1.0e-6;
 
     let Re = z[0];
@@ -53,18 +53,18 @@ function zM(z) {
 return [-z[0],-z[1]];
 }
 
-function zPhi(z) {
+export function zPhi(z) {
 return Math.atan2(z[1],z[0]);
 }
 
-function zSqrt(z) {
+export function zSqrt(z) {
    let phi = zPhi(z)*0.5;
    let r = Math.sqrt(zAbs(z));
 return   [[r*Math.cos(phi), r*Math.sin(phi)],
           [r*Math.cos(phi+Math.PI), r*Math.sin(phi+Math.PI)]];
 }
 
-function zExp(z) {
+export function zExp(z) {
    let r = Math.exp(z[0]);
 return   [r*Math.cos(z[1]),r*Math.sin(z[1])];
 }

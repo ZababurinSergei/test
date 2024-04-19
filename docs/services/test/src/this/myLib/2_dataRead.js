@@ -1,4 +1,4 @@
- function giveString(OneStr) {
+export function giveString(OneStr) {
 
 //интерпретируем данные, введенные пльзователем и записываем это всё в массив (длинной, кратной 11 - количеству переменных)
 // исходя из сокращенной записи:
@@ -128,7 +128,7 @@
 
 
 
-  function mediumSetting() {
+ export function mediumSetting() {
 
       let MediumParameters = [];
       MediumParameters.push(giveString(document.getElementById("primaryMedium").value));
