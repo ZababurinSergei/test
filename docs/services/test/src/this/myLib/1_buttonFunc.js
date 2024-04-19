@@ -83,6 +83,7 @@ export function solvMassives() {
 
     var dw = (w1 - w0) / (xPointN)
     var omg = 0;
+    console.log('======== dset ==========', dset)
     for (var i = 0; i < 12; i++) {
         dset[i] = [];
     }
