@@ -1,3 +1,5 @@
+import {mediumSetting} from '../../this/index.mjs'
+
 export function clean() {
     document.getElementById("report").innerHTML = ' --- ';
 }
